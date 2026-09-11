@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Red Chilly - Since 2011</title>
+    <meta name="description" content="New Red Chilly restaurant website with menu, reviews, contact information, and online ordering." />
+    <meta name="theme-color" content="#d93f30" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <div class="brand-block">
+          <div class="brand-badge">RC</div>
+          <div>
+            <p class="eyebrow">Since 2011</p>
+            <h1 id="restaurant-name">New Red Chilly</h1>
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <a href="#menu">Menu</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">Dark mode</button>
+          <a class="btn btn-outline" href="#menu">Order Now</a>
+          <a class="btn btn-primary" href="#contact">Call</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero reveal">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="pill">Open 24 hours</span>
+            <h2 id="restaurant-tagline">Authentic Indo-Chinese flavours, served fresh in Mira Road.</h2>
+            <p>Enjoy signature soups, crispy starters, fried rice, noodles, and special combinations crafted for every craving.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#menu">Explore Menu</a>
+              <a class="btn btn-secondary" id="directions-link" href="#" target="_blank" rel="noreferrer">Get Directions</a>
+            </div>
+            <ul class="stats">
+              <li><strong id="rating-value">4.2</strong><span>Google rating</span></li>
+              <li><strong id="review-count">5</strong><span>Reviews</span></li>
+              <li><strong>₹200–400</strong><span>Per person</span></li>
+            </ul>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-photo-panel hero-photo-panel--empty" aria-hidden="true"></div>
+
+            <div class="hero-card">
+              <div class="hero-card-header">
+                <span>Popular choices</span>
+                <span class="rating-chip">★ 4.2</span>
+              </div>
+              <ul class="mini-menu" id="featured-items"></ul>
+              <a class="link-text" href="#menu">View full menu →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="signature-section reveal">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Signature experiences</p>
+              <h3>Luxury comfort, bold flavours.</h3>
+            </div>
+          </div>
+
+          <div class="signature-grid">
+            <article class="signature-card reveal">
+              <img
+                src="https://images.unsplash.com/photo-1559847844-d7f1d0d67d5b?auto=format&fit=crop&w=800&q=80"
+                alt="Chef preparing noodles"
+              />
+              <div class="signature-card-content">
+                <p class="eyebrow small">Chef's pick</p>
+                <h4>Handcrafted Indo-Chinese specials</h4>
+                <p>Rich gravies, fiery sauces, and crowd-favourite plates made with taste-first ingredients.</p>
+              </div>
+            </article>
+
+            <article class="signature-card reveal">
+              <img
+                src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80"
+                alt="Chinese noodles bowl"
+              />
+              <div class="signature-card-content">
+                <p class="eyebrow small">Ambience</p>
+                <h4>Warm dining for every evening</h4>
+                <p>From quick bites to family dinners, the experience is designed to feel premium and welcoming.</p>
+              </div>
+            </article>
+
+            <article class="signature-card reveal">
+              <img
+                src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80"
+                alt="Food platter"
+              />
+              <div class="signature-card-content">
+                <p class="eyebrow small">Late-night cravings</p>
+                <h4>Open all night, always ready</h4>
+                <p>Perfect for late-night food runs, comforting dinners, and satisfying cravings any hour.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="promise-section reveal">
+        <div class="container promise-grid">
+          <div class="promise-panel promise-panel-large">
+            <p class="eyebrow">Why guests love us</p>
+            <h3>Indian-Chinese comfort food, elevated.</h3>
+            <p>
+              From crispy starters to rich noodles and slow-simmered special combos, New Red Chilly brings
+              big flavour, warm hospitality, and a premium dining feel to Mira Road.
+            </p>
+            <div class="promise-actions">
+              <a class="btn btn-primary" href="#menu">Browse signature menu</a>
+              <a class="btn btn-secondary" href="#contact">Book a table</a>
+            </div>
+          </div>
+
+          <div class="promise-panel promise-panel-compact">
+            <div class="mini-stat-grid">
+              <div class="mini-stat">
+                <span>11+</span>
+                <small>Years serving</small>
+              </div>
+              <div class="mini-stat">
+                <span>4.2★</span>
+                <small>Guest rating</small>
+              </div>
+              <div class="mini-stat">
+                <span>24/7</span>
+                <small>Open hours</small>
+              </div>
+              <div class="mini-stat">
+                <span>₹200+</span>
+                <small>Affordable luxury</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-section reveal">
+        <div class="container story-grid">
+          <div class="story-copy">
+            <p class="eyebrow">Crafted for every craving</p>
+            <h3>Food that feels indulgent, not generic.</h3>
+            <p>
+              Every plate is built around the bold flavours of Indo-Chinese dining: wok-charred vegetables,
+              silky gravies, aromatic soups, and comforting bowls that go beyond the usual takeaway experience.
+            </p>
+            <ul class="story-points">
+              <li>Freshly tossed starters and noodles</li>
+              <li>Late-night comfort bites and combo meals</li>
+              <li>Family-friendly service with big flavour</li>
+            </ul>
+          </div>
+
+          <div class="story-media">
+            <div class="story-photo story-photo-one reveal">
+              <img
+                src="https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&w=900&q=80"
+                alt="Indo-Chinese noodles"
+              />
+            </div>
+            <div class="story-photo story-photo-two reveal">
+              <img
+                src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=80"
+                alt="Food platter"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu" class="menu-section reveal">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Our menu</p>
+              <h3>Choose your favourites</h3>
+            </div>
+            <div class="menu-tools">
+              <input id="menu-search" type="search" placeholder="Search dishes" />
+            </div>
+          </div>
+
+          <div class="menu-layout">
+            <aside class="menu-categories" id="menu-categories"></aside>
+            <div class="menu-items-wrap">
+              <div id="menu-items" class="menu-items"></div>
+            </div>
+            <aside class="cart-panel">
+              <div class="cart-header">
+                <h4>Your order</h4>
+                <button class="text-btn" id="clear-cart">Clear</button>
+              </div>
+              <div id="cart-items" class="cart-items">
+                <p class="empty-state">Your cart is empty. Add a few favourites to get started.</p>
+              </div>
+              <div class="cart-summary">
+                <div>
+                  <span>Items</span>
+                  <strong id="cart-count">0</strong>
+                </div>
+                <div>
+                  <span>Total</span>
+                  <strong id="cart-total">₹0</strong>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="order-section">
+        <div class="container order-grid">
+          <div class="order-copy">
+            <p class="eyebrow">Quick checkout</p>
+            <h3>Place your order</h3>
+            <p>Fill in your details and send us your order request. We’ll get your items ready and contact you shortly.</p>
+          </div>
+
+          <form id="order-form" class="order-form">
+            <div class="field-row">
+              <div>
+                <label for="customer-name">Name</label>
+                <input id="customer-name" name="customerName" type="text" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="customer-phone">Phone</label>
+                <input id="customer-phone" name="phone" type="tel" placeholder="Your phone number" required />
+              </div>
+            </div>
+
+            <div>
+              <label for="customer-address">Address</label>
+              <textarea id="customer-address" name="address" rows="3" placeholder="Delivery address"></textarea>
+            </div>
+
+            <button class="btn btn-primary full-width" type="submit">Confirm Order</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="reviews" class="reviews-section">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Customer feedback</p>
+              <h3>What people are saying</h3>
+            </div>
+          </div>
+          <div id="reviews-list" class="reviews-list"></div>
+        </div>
+      </section>
+
+      <section id="about" class="info-section">
+        <div class="container info-grid">
+          <div class="info-card">
+            <p class="eyebrow">About us</p>
+            <h3>Fresh flavours, genuine hospitality.</h3>
+            <p>
+              New Red Chilly is a beloved restaurant in Mira Road serving house-made Indo-Chinese dishes,
+              signature soups, sizzling starters, noodles, and combo meals that satisfy every appetite.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <p class="eyebrow">Visit us</p>
+            <ul class="info-list">
+              <li><strong>Address:</strong> <span id="restaurant-address"></span></li>
+              <li><strong>Phone:</strong> <a id="restaurant-phone" href="tel:"></a></li>
+              <li><strong>Hours:</strong> <span id="restaurant-hours"></span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <div class="container contact-grid">
+          <div class="contact-card">
+            <p class="eyebrow">Let’s talk</p>
+            <h3>Send us a message</h3>
+            <p>Need catering, questions, or a custom order? Leave your details and we’ll respond shortly.</p>
+          </div>
+
+          <form id="contact-form" class="contact-form">
+            <div class="field-row">
+              <div>
+                <label for="enquiry-name">Name</label>
+                <input id="enquiry-name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="enquiry-email">Email</label>
+                <input id="enquiry-email" name="email" type="email" placeholder="Your email" required />
+              </div>
+            </div>
+
+            <div>
+              <label for="enquiry-phone">Phone</label>
+              <input id="enquiry-phone" name="phone" type="tel" placeholder="Phone number" />
+            </div>
+
+            <div>
+              <label for="enquiry-message">Message</label>
+              <textarea id="enquiry-message" name="message" rows="4" placeholder="Tell us how we can help" required></textarea>
+            </div>
+
+            <button class="btn btn-primary full-width" type="submit">Send Enquiry</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>© <span id="year"></span> New Red Chilly - Since 2011</p>
+        <a href="/admin.html">Admin dashboard</a>
+      </div>
+    </footer>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
