@@ -107,12 +107,36 @@ body.dark-mode .topbar {
 .brand-badge {
   width: 44px;
   height: 44px;
-  border-radius: 14px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, var(--primary), #f2765a);
-  color: white;
-  font-weight: 800;
+  background: #fff8f1;
+  border: 2px solid var(--primary);
+  box-shadow: 0 6px 14px rgba(177, 30, 36, 0.16);
+}
+
+.brand-badge svg {
+  width: 32px;
+  height: 32px;
+}
+
+.logo-chilli {
+  fill: var(--primary);
+  stroke: var(--primary-dark);
+  stroke-width: 1;
+}
+
+.logo-leaf {
+  fill: #2f7a5e;
+  stroke: #246148;
+  stroke-width: 1.5;
+}
+
+.logo-stem {
+  fill: none;
+  stroke: #246148;
+  stroke-width: 2;
+  stroke-linecap: round;
 }
 
 .brand-block h1 {
@@ -686,7 +710,7 @@ body.dark-mode .menu-item {
 
 .menu-layout {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr) 300px;
+  grid-template-columns: 220px minmax(0, 1fr);
   gap: 24px;
   align-items: start;
 }
@@ -700,6 +724,31 @@ body.dark-mode .menu-item {
   position: sticky;
   top: 92px;
   backdrop-filter: blur(1px);
+}
+
+.diet-filters {
+  display: grid;
+  gap: 8px;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.diet-filters button {
+  border: 1px solid var(--border);
+  background: var(--soft);
+  color: var(--muted);
+  border-radius: 12px;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.diet-filters button.active {
+  color: var(--text);
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
 }
 
 .category-list {
@@ -751,7 +800,7 @@ body.dark-mode .menu-item {
 
 .menu-items {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -767,6 +816,29 @@ body.dark-mode .menu-item {
   color: var(--text);
   transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
   backdrop-filter: blur(1px);
+}
+
+.menu-item-image {
+  width: calc(100% + 36px);
+  height: 170px;
+  margin: -18px -18px 2px;
+  object-fit: cover;
+  border-radius: 17px 17px 10px 10px;
+  display: block;
+}
+
+.menu-image-button {
+  display: block;
+  padding: 0;
+  margin: -18px -18px 2px;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.menu-image-button .menu-item-image {
+  width: 100%;
+  margin: 0;
 }
 
 .menu-item:hover {
@@ -835,6 +907,102 @@ body.dark-mode .menu-item {
   margin-top: auto;
 }
 
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.favorite-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--soft);
+  color: var(--primary);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.favorite-btn.active {
+  background: rgba(177, 30, 36, 0.12);
+}
+
+.menu-detail-dialog {
+  width: min(720px, calc(100% - 32px));
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  color: var(--text);
+  background: var(--panel);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+}
+
+.menu-detail-dialog::backdrop {
+  background: rgba(18, 11, 9, 0.64);
+}
+
+.dialog-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #241b18;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.detail-image {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.detail-copy {
+  padding: 26px;
+}
+
+.detail-copy h2 {
+  margin: 12px 0 8px;
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+}
+
+.detail-copy p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.detail-meta,
+.detail-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.detail-meta strong {
+  color: var(--primary);
+  font-size: 1.35rem;
+}
+
+.detail-meta span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.detail-actions {
+  justify-content: flex-start;
+}
+
 .item-price {
   font-weight: 800;
   font-size: 1.15rem;
@@ -860,8 +1028,8 @@ body.dark-mode .menu-item {
   border-radius: 22px;
   box-shadow: none;
   padding: 18px;
-  position: sticky;
-  top: 92px;
+  grid-column: 2;
+  position: static;
   color: var(--text);
   backdrop-filter: blur(1px);
 }
@@ -1111,6 +1279,10 @@ textarea {
     position: static;
   }
 
+  .cart-panel {
+    grid-column: 1;
+  }
+
   .signature-grid,
   .order-grid,
   .contact-grid,
@@ -1121,9 +1293,70 @@ textarea {
 }
 
 @media (max-width: 760px) {
+  .menu-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
   .hero-photo-panel {
     min-height: 300px;
   }
+}
+
+/* Keep the food photography visible without sacrificing text contrast. */
+body {
+  background:
+    linear-gradient(rgba(247, 239, 232, 0.86), rgba(247, 239, 232, 0.86)),
+    url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
+}
+
+body.dark-mode {
+  background:
+    linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)),
+    url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
+}
+
+.topbar,
+.hero-card,
+.stats li,
+.promise-panel,
+.mini-stat,
+.story-copy,
+.signature-card,
+.menu-categories,
+.menu-items-wrap,
+.menu-item,
+.cart-panel,
+.order-form,
+.contact-form,
+.review-card,
+.info-card,
+.contact-card,
+.site-footer {
+  background: var(--panel);
+  border-color: var(--border);
+  backdrop-filter: none;
+}
+
+body.dark-mode .hero-card,
+body.dark-mode .menu-items-wrap,
+body.dark-mode .menu-categories,
+body.dark-mode .menu-item,
+body.dark-mode .cart-panel {
+  background: var(--panel);
+  border-color: var(--border);
+}
+
+.mini-menu li {
+  background: var(--soft);
+  border-color: var(--border);
+}
+
+.promise-panel-large p,
+.story-copy p,
+.story-points li {
+  color: var(--muted);
 }
 
 @media (max-width: 760px) {
@@ -1155,6 +1388,10 @@ textarea {
   .menu-tools input {
     min-width: 0;
     width: 100%;
+  }
+
+  .menu-items {
+    grid-template-columns: 1fr;
   }
 
   .footer-wrap {

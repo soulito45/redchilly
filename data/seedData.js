@@ -31,7 +31,7 @@ export const restaurantData = {
   ],
 };
 
-export const menuItems = [
+const baseMenuItems = [
   { id: 'veg-manchow-soup', name: 'Veg Manchow Soup', category: 'Soups', price: 180, tags: ['veg', 'soup', 'spicy'], veg: true, description: 'Hearty vegetable soup with classic Indo-Chinese flavours and crunchy noodles.' },
   { id: 'veg-royal-soup', name: 'Veg Royal Soup', category: 'Soups', price: 180, tags: ['veg', 'soup', 'premium'], veg: true, description: 'A luxurious vegetable broth with refined flavors and aromatic spice.' },
   { id: ' mushroom-hotn-sour', name: 'Mushroom Hot N Sour Soup', category: 'Soups', price: 270, tags: ['veg', 'mushroom', 'hot'], veg: true, description: 'Bold heat and tangy sourness with tender mushrooms and fresh vegetables.' },
@@ -67,3 +67,35 @@ export const menuItems = [
   { id: 'veg-mixed-noodles', name: 'Veg Mixed Noodles', category: 'Special Combos', price: 490, tags: ['veg', 'mixed', 'noodles'], veg: true, description: 'Hakka noodles tossed with paneer, mushrooms, and baby corn in house sauces.' },
   { id: 'non-veg-mixed-noodles', name: 'Non Veg Mixed Noodles', category: 'Special Combos', price: 540, tags: ['non-veg', 'mixed', 'noodles'], veg: false, description: 'A hearty plate of noodles with egg, chicken, and prawns.' },
 ];
+
+const menuPhotos = {
+  soups: [
+    'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=900&q=85',
+  ],
+  starters: [
+    'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=900&q=85',
+  ],
+  'fried rice': [
+    'https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=900&q=85',
+  ],
+  noodles: [
+    'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=900&q=85',
+  ],
+  'special combos': [
+    'https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=85',
+  ],
+};
+
+export const menuItems = baseMenuItems.map((item, index) => {
+  const photos = menuPhotos[item.category.toLowerCase()] || menuPhotos.starters;
+  return {
+    ...item,
+    image: photos[index % photos.length],
+  };
+});

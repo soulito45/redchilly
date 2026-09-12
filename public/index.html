@@ -17,7 +17,13 @@
     <header class="topbar">
       <div class="container nav-wrap">
         <div class="brand-block">
-          <div class="brand-badge">RC</div>
+          <div class="brand-badge" aria-label="New Red Chilly logo">
+            <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
+              <path class="logo-leaf" d="M28 13c4-6 10-7 14-6-1 5-4 10-11 11" />
+              <path class="logo-chilli" d="M28 13c7 5 7 14 2 21-5 7-14 9-19 4-4-4-2-11 4-15 4-3 8-6 13-10Z" />
+              <path class="logo-stem" d="M28 13c-1-4 0-7 3-10" />
+            </svg>
+          </div>
           <div>
             <p class="eyebrow">Since 2011</p>
             <h1 id="restaurant-name">New Red Chilly</h1>
@@ -237,7 +243,7 @@
           <div class="order-copy">
             <p class="eyebrow">Quick checkout</p>
             <h3>Place your order</h3>
-            <p>Fill in your details and send us your order request. We’ll get your items ready and contact you shortly.</p>
+            <p>Fill in your details and send us your order request. We’ll get your items ready and contact you shortly. Online payments require <code>RAZORPAY_KEY_ID</code> and <code>RAZORPAY_KEY_SECRET</code>; COD is always available.</p>
           </div>
 
           <form id="order-form" class="order-form">
@@ -256,9 +262,21 @@
               <label for="customer-address">Address</label>
               <textarea id="customer-address" name="address" rows="3" placeholder="Delivery address"></textarea>
             </div>
+            <div class="field-row">
+              <div><label for="customer-pincode">Delivery pincode</label><input id="customer-pincode" name="pincode" inputmode="numeric" pattern="[0-9]{6}" placeholder="401107" /></div>
+              <div><label for="payment-method">Payment</label><select id="payment-method" name="paymentMethod"><option value="cod">Cash on Delivery</option><option value="razorpay">Online payment (Razorpay)</option></select></div>
+            </div>
 
             <button class="btn btn-primary full-width" type="submit">Confirm Order</button>
+            <a class="btn btn-secondary full-width" id="whatsapp-order" target="_blank" rel="noreferrer">Order on WhatsApp</a>
           </form>
+        </div>
+      </section>
+
+      <section class="info-section">
+        <div class="container info-grid">
+          <div class="info-card"><p class="eyebrow">Track an order</p><h3>Order status updates</h3><form id="tracking-form"><div class="field-row"><input name="orderId" placeholder="ORD-..." required /><button class="btn btn-primary" type="submit">Track</button></div></form><p id="tracking-result"></p></div>
+          <div class="info-card"><p class="eyebrow">Reserve your table</p><h3>Plan your visit</h3><form id="reservation-form"><div class="field-row"><input name="name" placeholder="Name" required /><input name="phone" placeholder="Phone" required /></div><div class="field-row"><input name="date" type="date" required /><input name="time" type="time" required /><input name="guests" type="number" min="1" max="20" placeholder="Guests" required /></div><button class="btn btn-primary" type="submit">Request reservation</button></form></div>
         </div>
       </section>
 
@@ -331,6 +349,11 @@
         </div>
       </section>
     </main>
+
+    <dialog id="menu-detail-dialog" class="menu-detail-dialog">
+      <button class="dialog-close" id="menu-detail-close" type="button" aria-label="Close dish details">×</button>
+      <div id="menu-detail-content"></div>
+    </dialog>
 
     <footer class="site-footer">
       <div class="container footer-wrap">

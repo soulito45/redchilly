@@ -12,49 +12,110 @@
     <link rel="stylesheet" href="/styles.css" />
     <style>
       body {
-        background: #fffaf6;
+        background:
+          linear-gradient(rgba(255, 250, 246, 0.94), rgba(255, 250, 246, 0.94)),
+          url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+        color: #2d211d;
       }
 
       .admin-shell {
-        max-width: 1200px;
-        margin: 32px auto;
-        padding: 0 16px 48px;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 28px 20px 56px;
       }
 
-      .admin-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 24px;
+      .admin-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 28px;
       }
 
       .admin-card {
-        background: white;
+        background: rgba(255, 255, 255, 0.94);
         border: 1px solid #f1d6c8;
-        border-radius: 22px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-        padding: 22px;
+        border-radius: 20px;
+        box-shadow: 0 16px 34px rgba(93, 47, 31, 0.08);
+        padding: 24px;
       }
 
       .admin-card h3 {
-        margin-top: 0;
+        margin: 0;
+        font-family: 'Manrope', sans-serif;
+        font-size: 1.05rem;
+      }
+
+      .admin-title h3 {
+        margin: 4px 0 0;
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        font-family: 'Cormorant Garamond', Georgia, serif;
+      }
+
+      .admin-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .refresh-btn {
+        border: 1px solid #e9c9b9;
+        background: #fff;
+        color: #8f1b1f;
+        border-radius: 999px;
+        padding: 11px 15px;
+        font-weight: 800;
+        cursor: pointer;
       }
 
       .stats-box {
         display: grid;
-        gap: 12px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-bottom: 24px;
       }
 
       .stat {
+        background: linear-gradient(145deg, #fff8f2, #fff0e7);
         border: 1px solid #f1d6c8;
-        background: #fff5ee;
         border-radius: 16px;
-        padding: 14px;
+        padding: 18px;
+      }
+
+      .stat-label {
+        color: #806c64;
+        font-size: 0.82rem;
+        font-weight: 700;
       }
 
       .stat strong {
         display: block;
-        font-size: 1.5rem;
-        margin-top: 4px;
+        color: #8f1b1f;
+        font-size: 1.65rem;
+        margin-top: 7px;
+      }
+
+      .admin-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .admin-card-wide {
+        grid-column: 1 / -1;
+      }
+
+      .card-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .card-heading small {
+        color: #806c64;
+        font-weight: 700;
       }
 
       .data-list {
@@ -62,54 +123,153 @@
         padding: 0;
         margin: 0;
         display: grid;
-        gap: 10px;
+        gap: 12px;
       }
 
       .data-item {
         border: 1px solid #f1d6c8;
-        background: #fff7f2;
-        border-radius: 14px;
-        padding: 12px;
+        background: #fffaf7;
+        border-radius: 16px;
+        padding: 15px;
+      }
+
+      .data-item-head,
+      .data-item-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .data-item-head strong {
+        color: #8f1b1f;
+      }
+
+      .data-item-meta {
+        margin-top: 8px;
+        color: #806c64;
+        font-size: 0.78rem;
+      }
+
+      .data-item-content {
+        margin: 10px 0 0;
+        color: #4e3c35;
+        line-height: 1.5;
       }
 
       .data-item small {
-        color: #666;
+        color: #806c64;
+      }
+
+      .status-badge {
+        border-radius: 999px;
+        padding: 5px 9px;
+        background: #fff0d5;
+        color: #8a5e13;
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .empty-dashboard {
+        padding: 28px 12px;
+        text-align: center;
+        color: #806c64;
+      }
+
+      @media (max-width: 760px) {
+        .admin-header,
+        .data-item-head,
+        .data-item-meta {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .admin-actions {
+          width: 100%;
+        }
+
+        .admin-actions a,
+        .refresh-btn {
+          flex: 1;
+          text-align: center;
+        }
+
+        .stats-box,
+        .admin-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .admin-card-wide {
+          grid-column: auto;
+        }
       }
     </style>
   </head>
   <body>
     <main class="admin-shell">
-      <div class="section-heading">
-        <div>
+      <div class="admin-header">
+        <div class="admin-title">
           <p class="eyebrow">Admin panel</p>
           <h3>Red Chilly dashboard</h3>
         </div>
-        <a class="btn btn-secondary" href="/">Back to website</a>
+        <div class="admin-actions">
+          <button class="refresh-btn" id="refresh-dashboard" type="button">Refresh data</button>
+          <a class="btn btn-secondary" href="/">Back to website</a>
+        </div>
+      </div>
+
+      <div class="stats-box">
+        <div class="stat">
+          <span class="stat-label">Total orders</span>
+          <strong id="admin-order-count">0</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Total enquiries</span>
+          <strong id="admin-enquiry-count">0</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Revenue recorded</span>
+          <strong id="admin-revenue">₹0</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Average order</span>
+          <strong id="admin-average-order">₹0</strong>
+        </div>
       </div>
 
       <div class="admin-grid">
-        <section class="admin-card">
-          <h3>Overview</h3>
-          <div class="stats-box">
-            <div class="stat">
-              <small>Total orders</small>
-              <strong id="admin-order-count">0</strong>
-            </div>
-            <div class="stat">
-              <small>Total enquiries</small>
-              <strong id="admin-enquiry-count">0</strong>
-            </div>
+        <section class="admin-card admin-card-wide">
+          <div class="card-heading">
+            <h3>Recent orders</h3>
+            <small>Latest 8 orders</small>
           </div>
-        </section>
-
-        <section class="admin-card">
-          <h3>Recent orders</h3>
           <ul id="admin-orders" class="data-list"></ul>
         </section>
+        <section class="admin-card">
+          <div class="card-heading"><h3>Sales analytics</h3><small>Live summary</small></div>
+          <p id="admin-status-summary" class="data-item-content">Loading…</p>
+        </section>
+        <section class="admin-card">
+          <div class="card-heading"><h3>Table reservations</h3><small>Latest requests</small></div>
+          <ul id="admin-reservations" class="data-list"></ul>
+        </section>
 
         <section class="admin-card">
-          <h3>Recent enquiries</h3>
+          <div class="card-heading">
+            <h3>Recent enquiries</h3>
+            <small>Latest 8 messages</small>
+          </div>
           <ul id="admin-enquiries" class="data-list"></ul>
+        </section>
+
+        <section class="admin-card">
+          <div class="card-heading">
+            <h3>Admin notes</h3>
+            <small>Quick reference</small>
+          </div>
+          <p class="data-item-content">Review new orders regularly, confirm customer details, and contact guests promptly for delivery or special requests.</p>
         </section>
       </div>
     </main>
